@@ -4,39 +4,22 @@ public class Program
 {
     public static void Main()
     {
-        int contador = 0;
-        int n;
-        int[] abundantes = new int[20];
+        int horas, minutos, segundos;
 
-        while(contador < 20)
-        {
-            Console.Write("Insira Um numero: ");
-            n = int.Parse(Console.ReadLine());
+        Console.Write("Insira as horas: ");
+        horas = int.Parse(Console.ReadLine());    
 
-            if (EhAbundante(n))
-            {
-                abundantes[contador] = n;
-                contador ++;
-            }
-            else
-                Console.WriteLine($"{n} não é abundante!");
-        }
+        Console.Write("Insira as minutos: ");
+        minutos = int.Parse(Console.ReadLine()); 
 
-        Console.WriteLine("20 numeros abundantes encontrados");
+        Console.Write("Insira as segundos: ");
+        segundos = int.Parse(Console.ReadLine()); 
+
+        Console.WriteLine($"Total em Segundos: {TotalSegs(horas, minutos, segundos)}");
     }
 
-    public static bool EhAbundante(int n)
+    public static int TotalSegs(int h, int m, int s)
     {
-        int soma = 0;
-
-        for(int i=0 ; i < n; i++)
-        {
-            soma += i;
-        }
-
-        if(soma > n)
-            return true;
-        else
-            return false;
+        return (h * 60 * 60) + (m * 60) + s;
     }
 }
